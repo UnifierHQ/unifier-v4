@@ -173,7 +173,7 @@ if clear_tokens:
         print('\x1b[31;1mPasswords do not match.\x1b[0m')
         sys.exit(1)
 
-    os.remove('.encryptedenv')
+    os.remove('secrets/.encryptedenv')
     os.environ['UNIFIER_ENCPASS'] = str(encryption_password)
     os.system(f'{binary} src/boot/tokenmgr.py')
     sys.exit(0)
@@ -213,7 +213,7 @@ choice = None
 
 while True:
     plain = os.path.isfile('.env')
-    encrypted = os.path.isfile('.encryptedenv')
+    encrypted = os.path.isfile('secrets/.encryptedenv')
     if not choice is None and os.environ.get('UNIFIER_ENCPASS') is None:
         # choice is set but not the password, likely due to wrong password
         encryption_password = getpass.getpass('Password: ')

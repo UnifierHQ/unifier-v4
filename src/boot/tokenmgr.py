@@ -30,7 +30,7 @@ except:
     sys.exit(1)
 
 
-with open('config.toml', 'rb') as file:
+with open('config/config.toml', 'rb') as file:
     # noinspection PyTypeChecker
     config = tomli.load(file)
 
@@ -176,7 +176,7 @@ def reencrypt_tokens():
 
     if not salt == config['system']['encrypted_env_salt']:
         config['system']['encrypted_env_salt'] = salt
-        with open('config.toml', 'wb') as file:
+        with open('config/config.toml', 'wb') as file:
             tomli_w.dump(config, file)
 
     print('\x1b[36;1mTokens have been re-encrypted successfully.\x1b[0m')
