@@ -25,7 +25,7 @@ import getpass
 
 try:
     sys.path.insert(0, '.')
-    from utils import secrets
+    from ..utils import secrets
 except:
     print('\x1b[31;1mSomething went wrong.\x1b[0m')
     sys.exit(1)

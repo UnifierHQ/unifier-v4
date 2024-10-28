@@ -27,8 +27,7 @@ import traceback
 from nextcord.ext import commands
 
 try:
-    sys.path.insert(0, '.')
-    from utils import secrets
+    from ..utils import secrets
 except:
     raise
 
@@ -172,8 +171,8 @@ except:
     print('\x1b[31;49mMake sure all privileged intents are enabled for the bot.\x1b[0m')
     sys.exit(1)
 
-tokenstore = secrets.TokenStore(False, password=encryption_password, salt=salt, content_override={'TOKEN': token})
-tokenstore.save('.encryptedenv', '.ivs')
+tokenstore = secrets.TokenStore(False, password=encryption_password, content_override={'TOKEN': token})
+tokenstore.save('.encryptedenv')
 print('\x1b[36;1mYour tokens have been stored securely.\x1b[0m')
 
 with open('config.toml', 'rb') as file:
