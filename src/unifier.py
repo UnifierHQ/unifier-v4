@@ -317,7 +317,7 @@ class DiscordBot(commands.Bot):
         self.cooldowns = {}
 
         if should_encrypt:
-            self.__tokenstore.to_encrypted(os.environ['UNIFIER_ENCPASS'], data['encrypted_env_salt'])
+            self.__tokenstore.to_encrypted(os.environ['UNIFIER_ENCPASS'])
             os.remove('.env')
 
     @property
