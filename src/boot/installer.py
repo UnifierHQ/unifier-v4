@@ -27,7 +27,7 @@ import traceback
 from nextcord.ext import commands
 
 try:
-    from utils import secrets
+    from src.utils import secrets
 except:
     raise
 
