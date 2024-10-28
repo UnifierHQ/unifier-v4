@@ -62,7 +62,7 @@ class Encryptor:
         return result
 
 class TokenStore:
-    def __init__(self, encrypted, password=None, salt=None, debug=False, content_override=None, onetime=None):
+    def __init__(self, encrypted, password=None, debug=False, content_override=None, onetime=None):
         self.__is_encrypted = encrypted
         self.__encryptor = Encryptor()
         self.__password = password
@@ -72,8 +72,6 @@ class TokenStore:
         if encrypted:
             if not password:
                 raise ValueError('encryption password must be provided')
-            if not salt:
-                raise ValueError('encryption salt must be provided')
 
             # file is in json format
             try:

@@ -37,7 +37,7 @@ with open('config/config.toml', 'rb') as file:
 salt = config['system']['encrypted_env_salt']
 
 try:
-    tokenmgr = secrets.TokenStore(True, password=os.environ.get('UNIFIER_ENCPASS'), salt=salt)
+    tokenmgr = secrets.TokenStore(True, password=os.environ.get('UNIFIER_ENCPASS'), debug=True)
 except ValueError:
     print('\x1b[31;1mYou must provide a password.\x1b[0m')
     sys.exit(1)
