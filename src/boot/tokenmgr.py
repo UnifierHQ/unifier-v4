@@ -23,14 +23,9 @@ import sys
 import os
 import getpass
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-
-print(sys.path)
-
 try:
     from src.utils import secrets
 except:
-    raise
     print('\x1b[31;1mSomething went wrong.\x1b[0m')
     sys.exit(1)
 
