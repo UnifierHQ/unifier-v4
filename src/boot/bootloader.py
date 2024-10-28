@@ -33,19 +33,19 @@ if os.getcwd().endswith('/boot'):
     print('\x1b[31;1mYou are running the bootloader directly. Please run the run.sh file instead.\x1b[0m')
     sys.exit(1)
 
-with open('boot/internal.json') as file:
+with open('src/boot/internal.json') as file:
     internal = json.load(file)
 
 install_options = internal['options']
 
 boot_config = {}
 try:
-    with open('boot_config.json') as file:
+    with open('config/boot_config.json') as file:
         boot_config = json.load(file)
 except:
     if os.path.exists('update'):
-        shutil.copy2('update/boot_config.json', 'boot_config.json')
-    with open('boot_config.json') as file:
+        shutil.copy2('update/boot_config.json', 'config/boot_config.json')
+    with open('config/boot_config.json') as file:
         boot_config = json.load(file)
 
 bootloader_config = boot_config.get('bootloader', {})
