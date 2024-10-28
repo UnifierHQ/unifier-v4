@@ -181,9 +181,6 @@ def reencrypt_tokens():
 
     print('\x1b[36;1mTokens have been re-encrypted successfully.\x1b[0m')
 
-def stop():
-    sys.exit(0)
-
 def command_help():
     print('\x1b[36;1mCommands:\x1b[0m')
     for command in commands:
@@ -197,7 +194,7 @@ commands = {
     'list-tokens': list_tokens,
     'reencrypt-tokens': reencrypt_tokens,
     'help': command_help,
-    'exit': stop
+    'exit': lambda: sys.exit(0)
 }
 
 
@@ -217,6 +214,8 @@ while True:
         print('\x1b[33;1mInvalid command. Type "help" for a list of commands.\x1b[0m')
     except KeyboardInterrupt:
         pass
+    except SystemExit:
+        break
     except:
         traceback.print_exc()
         print('\x1b[31;1mAn error occurred.\x1b[0m')
