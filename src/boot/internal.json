@@ -3,7 +3,7 @@
   "maintainer_profile": "https://github.com/UnifierHQ",
   "product": "unifier",
   "product_name": "Unifier",
-  "base_bootfile": "unifier.py",
+  "base_bootfile": "src/core/unifier.py",
   "repo": "https://github.com/UnifierHQ/unifier",
   "required_py_version": 9,
   "skip_server": false,

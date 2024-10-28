@@ -135,7 +135,7 @@ if not '.install.json' in os.listdir() or reinstall or depinstall:
 
             install_option = install_data['option']
 
-        exit_code = os.system(f'{binary} boot/dep_installer.py {install_option}{options}')
+        exit_code = os.system(f'{binary} src/boot/dep_installer.py {install_option}{options}')
         if not exit_code == 0:
             sys.exit(exit_code)
 
@@ -143,7 +143,7 @@ if not '.install.json' in os.listdir() or reinstall or depinstall:
             print('\x1b[36;1mDependencies installed successfully.\x1b[0m')
             sys.exit(0)
 
-        exit_code = os.system(f'{binary} boot/installer.py {install_option}{options}')
+        exit_code = os.system(f'{binary} src/boot/installer.py {install_option}{options}')
 
         if not exit_code == 0:
             print('\x1b[31;1mInstaller has crashed or has been aborted.\x1b[0m')
@@ -175,17 +175,17 @@ if clear_tokens:
 
     os.remove('.encryptedenv')
     os.environ['UNIFIER_ENCPASS'] = str(encryption_password)
-    os.system(f'{binary} boot/tokenmgr.py')
+    os.system(f'{binary} src/boot/tokenmgr.py')
     sys.exit(0)
 
 if manage_tokens:
     encryption_password = getpass.getpass('Password: ')
     os.environ['UNIFIER_ENCPASS'] = str(encryption_password)
-    os.system(f'{binary} boot/tokenmgr.py')
+    os.system(f'{binary} src/boot/tokenmgr.py')
     sys.exit(0)
 
 if recovery:
-    os.system(f'{binary} boot/recovery.py')
+    os.system(f'{binary} src/boot/recovery.py')
     sys.exit(0)
 
 if not boot_file in os.listdir():
