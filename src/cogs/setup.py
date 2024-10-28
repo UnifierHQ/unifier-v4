@@ -20,7 +20,7 @@ import nextcord
 import os
 import asyncio
 from nextcord.ext import commands
-from ..utils import ui, log
+from src.utils import ui, log
 import json
 import sys
 import time
