@@ -1,0 +1,31 @@
+{
+  "version": "v3.5.11",
+  "release": 128,
+  "mappings": {
+    "src/cogs/config.py": "src/cogs/config.py",
+    "src/cogs/bridge.py": "src/cogs/bridge.py",
+    "src/cogs/moderation.py": "src/cogs/moderation.py",
+    "src/cogs/badge.py": "src/cogs/badge.py",
+    "src/cogs/setup.py": "src/cogs/setup.py",
+    "src/utils/langmgr.py": "src/utils/langmgr.py",
+    "src/utils/log.py": "src/utils/log.py",
+    "src/utils/platform_base.py": "src/utils/platform_base.py",
+    "src/utils/restrictions.py": "src/utils/restrictions.py",
+    "src/utils/restrictions_legacy.py": "src/utils/restrictions_legacy.py",
+    "src/utils/secrets.py": "src/utils/secrets.py",
+    "src/utils/slash.py": "src/utils/slash.py",
+    "src/utils/ui.py": "src/utils/ui.py",
+    "src/utils/webhook_cache.py": "src/utils/webhook_cache.py",
+    "src/boot/internal.json": "src/boot/internal.json",
+    "src/boot/bootloader.py": "src/boot/bootloader.py",
+    "src/boot/dep_installer.py": "src/boot/dep_installer.py",
+    "src/boot/installer.py": "src/boot/installer.py",
+    "src/boot/recovery.py": "src/boot/recovery.py",
+    "src/boot/tokenmgr.py": "src/boot/tokenmgr.py",
+    "requirements.txt": "requirements.txt",
+    "requirements_balanced.txt": "requirements_balanced.txt",
+    "requirements_stable.txt": "requirements_stable.txt",
+    "run.sh": "run.sh",
+    "run.bat": "run.bat"
+  }
+}
