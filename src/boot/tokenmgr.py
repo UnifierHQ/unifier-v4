@@ -170,7 +170,7 @@ def reencrypt_tokens():
         return
 
     try:
-        tokenmgr.reencrypt(current_password, password, salt)
+        tokenmgr.reencrypt(current_password, password)
     except ValueError:
         print('\x1b[31;1mInvalid password. Your current encryption password is needed to re-encrypt tokens.\x1b[0m')
         return
