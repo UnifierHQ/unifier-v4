@@ -7,4 +7,7 @@ if [[ -z $FILEPATH ]]; then
   exit 1
 fi
 
+# shellcheck disable=SC2155
+export PYTHONPATH=$(pwd)/src
+
 python3 ./src/boot/bootloader.py "$@"
