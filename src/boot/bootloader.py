@@ -173,7 +173,11 @@ if clear_tokens:
         print('\x1b[31;1mPasswords do not match.\x1b[0m')
         sys.exit(1)
 
-    os.remove('secrets/.encryptedenv')
+    try:
+        os.remove('secrets/.encryptedenv')
+    except FileNotFoundError:
+        pass
+
     os.environ['UNIFIER_ENCPASS'] = str(encryption_password)
     os.system(f'{binary} src/boot/tokenmgr.py')
     sys.exit(0)
