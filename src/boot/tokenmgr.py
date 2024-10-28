@@ -23,6 +23,8 @@ import sys
 import os
 import getpass
 
+print(sys.path)
+
 try:
     from src.utils import secrets
 except:
