@@ -23,10 +23,9 @@ import sys
 import os
 import getpass
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 
 print(sys.path)
-import src.utils
 
 try:
     from src.utils import secrets
