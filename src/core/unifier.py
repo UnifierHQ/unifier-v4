@@ -34,7 +34,7 @@ import shutil
 import filecmp
 import datetime
 from typing_extensions import Self
-from src.utils import log, secrets, restrictions as r, restrictions_legacy as r_legacy, langmgr
+from utils import log, secrets, restrictions as r, restrictions_legacy as r_legacy, langmgr
 from pathlib import Path
 
 # import ujson if installed

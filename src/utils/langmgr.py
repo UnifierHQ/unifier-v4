@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 from nextcord.ext import commands
 import json
 from typing import Union
-from . import log
+from utils import log
 import os
 import nextcord
 
