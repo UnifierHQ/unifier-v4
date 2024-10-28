@@ -181,6 +181,9 @@ def reencrypt_tokens():
 
     print('\x1b[36;1mTokens have been re-encrypted successfully.\x1b[0m')
 
+def stop():
+    sys.exit(0)
+
 def command_help():
     print('\x1b[36;1mCommands:\x1b[0m')
     for command in commands:
@@ -194,7 +197,7 @@ commands = {
     'list-tokens': list_tokens,
     'reencrypt-tokens': reencrypt_tokens,
     'help': command_help,
-    'exit': lambda: sys.exit(0)
+    'exit': stop
 }
 
 
