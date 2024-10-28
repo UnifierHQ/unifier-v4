@@ -28,4 +28,4 @@ jobs:
           pip install pylint
       - name: Pylint analysis
         run: |
-          pylint --rcfile .pylintrc --enable-all-extensions --extension-pkg-allow-list=orjson,ujson --disable=R,C,W $(git ls-files '*.py')
+          pylint --enable-all-extensions --extension-pkg-allow-list=orjson,ujson --disable=R,C,W $(git ls-files '*.py')
