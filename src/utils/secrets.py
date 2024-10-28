@@ -91,6 +91,18 @@ class TokenStore:
 
         self.__debug = debug
 
+        if not 'test' in self.__data.keys():
+            test_value, test_tag, test_nonce, test_salt = self.__encryptor.encrypt(str.encode(
+                ''.join([random.choice(string.ascii_letters + string.digits) for _ in range(16)])
+            ), self.__password)
+
+            self.__data['test'] = {
+                "ciphertext": base64.b64encode(test_value).decode('ascii'),
+                "tag": test_tag,
+                "nonce": test_nonce,
+                "salt": test_salt
+            }
+
     @property
     def encrypted(self):
         return self.__is_encrypted
