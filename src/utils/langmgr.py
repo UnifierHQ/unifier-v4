@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 from nextcord.ext import commands
 import json
 from typing import Union
-from utils import log
+from . import log
 import os
 import nextcord
 
@@ -133,7 +133,9 @@ class LanguageManager:
             })
 
         if not ignore_base:
-            options.update({self.__language_base['locale']: self.get("description", f"{cogname}.{cmdname}")})
+            options.update({
+                self.__language_base['locale']: self.get("description", f"{cogname}.{cmdname}")
+            })
 
         return options
 
@@ -252,7 +254,7 @@ class Selector:
     @property
     def extname(self):
         return self.__extname
-    
+
     @property
     def cmdname(self):
         return self.__cmdname

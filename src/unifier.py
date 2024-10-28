@@ -34,7 +34,7 @@ import shutil
 import filecmp
 import datetime
 from typing_extensions import Self
-from utils import log, secrets, restrictions as r, restrictions_legacy as r_legacy, langmgr
+from .utils import log, secrets, restrictions as r, restrictions_legacy as r_legacy, langmgr
 from pathlib import Path
 
 # import ujson if installed
@@ -42,6 +42,9 @@ try:
     import ujson as json  # pylint: disable=import-error
 except:
     pass
+
+if not __name__ == '__main__':
+    raise Exception('This script cannot be imported, run it using the bootloader instead')
 
 try:
     with open('.install.json') as file:
