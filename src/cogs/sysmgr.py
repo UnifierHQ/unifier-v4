@@ -32,7 +32,7 @@ from nextcord.ext import commands, tasks, application_checks
 import inspect
 import textwrap
 from contextlib import redirect_stdout
-from utils import log, ui, langmgr, restrictions as r, restrictions_legacy as r_legacy, slash as slash_helper
+from src.utils import log, ui, langmgr, restrictions as r, restrictions_legacy as r_legacy, slash as slash_helper  # pylint: disable=import-error
 import json
 import os
 import sys

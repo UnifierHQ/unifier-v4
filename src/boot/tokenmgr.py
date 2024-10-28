@@ -24,7 +24,7 @@ import os
 import getpass
 
 try:
-    from src.utils import secrets
+    from src.utils import secrets  # pylint: disable=import-error
 except:
     print('\x1b[31;1mSomething went wrong.\x1b[0m')
     sys.exit(1)

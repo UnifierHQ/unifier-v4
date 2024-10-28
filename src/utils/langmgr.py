@@ -19,7 +19,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 from nextcord.ext import commands
 import json
 from typing import Union
-from . import log
+from src.utils import log  # pylint: disable=import-error
 import os
 import nextcord
 
