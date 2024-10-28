@@ -26,6 +26,7 @@ import getpass
 try:
     from ..utils import secrets
 except:
+    raise
     print('\x1b[31;1mSomething went wrong.\x1b[0m')
     sys.exit(1)
 
