@@ -8,6 +8,6 @@ if [[ -z $FILEPATH ]]; then
 fi
 
 # shellcheck disable=SC2155
-export PYTHONPATH=$(pwd)/src
+export PYTHONPATH=$(pwd)
 
 python3 ./src/boot/bootloader.py "$@"
