@@ -27,6 +27,8 @@ with open('boot/internal.json') as file:
 
 install_options = internal['options']
 
+skip_plugins = '--skip-plugins' in sys.argv
+
 prefix = None
 
 if not install_option:
@@ -64,6 +66,22 @@ if not code == 0:
     print('\x1b[31;1mCould not install dependencies.\x1b[0m')
     print('\x1b[31;1mIf you\'re using a virtualenv, you might want to set global_dep_install to true in bootloader configuration to fix this.\x1b[0m')
     sys.exit(code)
+
+if not skip_plugins:
+    print('\x1b[36;1mInstalling Modifier dependencies, this may take a while...\x1b[0m')
+    for plugin in os.listdir('plugins'):
+        if not os.path.isdir(f'plugins/{plugin}'):
+            continue
+
+        with open(f'plugins/{plugin}/plugin.json') as file:
+            plugin_data = json.load(file)
+
+        if not plugin_data.get('requirements', None):
+            continue
+
+        code = os.system(f'{binary} -m pip install{user_arg} -U {" ".join(plugin_data["requirements"])}')
+        if not code == 0:
+            print(f'\x1b[36;1mCould not install dependencies for {plugin_data["id"]}, this Modifier may not work.\x1b[0m')
 
 print('\x1b[36;1mDependencies successfully installed.\x1b[0m')
 sys.exit(0)
