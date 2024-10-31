@@ -220,12 +220,9 @@ if 'allow_prs' in list(data.keys()) and not 'allow_posts' in list(data.keys()):
 if 'external' in list(data.keys()):
     logger.warning('From v3.3.0, external is deprecated. To disable a platform, please uninstall the support plugin.')
 
-if 'token' in list(data.keys()):
-    logger.warning('From v1.1.8, Unifier uses .env (dotenv) files to store tokens. We recommend you remove the old token keys from your config.json file.')
-
 cgroup = Path('/proc/self/cgroup')
 if Path('/.dockerenv').is_file() or cgroup.is_file() and 'docker' in cgroup.read_text():
-    logger.warning('Unifier is running in a Docker container. Some features may need plugins to work properly.')
+    logger.warning('Unifier is running in a Docker container. Some features may need Modifiers to work properly.')
 
 try:
     with open('plugins/system/plugin.json', 'r') as file:
