@@ -22,6 +22,9 @@ import shutil
 import json
 import time
 import getpass
+from pathlib import Path
+
+cgroup = Path('/proc/self/cgroup')
 
 reinstall = '--reinstall' in sys.argv
 depinstall = '--install-deps' in sys.argv
@@ -112,6 +115,11 @@ if not '.install.json' in os.listdir() or reinstall or depinstall:
             print(f'- Installation option: {install_option}')
             print(f'- Install directory: {os.getcwd()}')
             print(f'- Python command/binary: {binary}\n')
+
+            if Path('/.dockerenv').is_file() or cgroup.is_file() and 'docker' in cgroup.read_text():
+                print('\x1b[33;1mNOTE: If you want to use Docker, you shouldn\'t run this yet.\x1b[0m')
+                print('\x1b[33;1mFollow the Docker installation guide instead.\x1b[0m\n')
+
             print('\x1b[33;1mProceed with installation? (y/n)\x1b[0m')
 
             try:
