@@ -312,7 +312,6 @@ class DiscordBot(commands.Bot):
         self.__tokenstore = secrets.TokenStore(
             not should_encrypt,
             password=os.environ['UNIFIER_ENCPASS'],
-            salt=data['encrypted_env_salt'],
             debug=data['debug'],
             onetime=['TOKEN']
         )
