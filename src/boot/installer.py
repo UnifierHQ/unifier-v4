@@ -171,7 +171,7 @@ except:
     print('\x1b[31;49mMake sure all privileged intents are enabled for the bot.\x1b[0m')
     sys.exit(1)
 
-tokenstore = secrets.TokenStore(False, password=encryption_password, content_override={'TOKEN': token})
+tokenstore = secrets.TokenStore(True, password=encryption_password, content_override={'TOKEN': token})
 tokenstore.save('.encryptedenv')
 print('\x1b[36;1mYour tokens have been stored securely.\x1b[0m')
 
