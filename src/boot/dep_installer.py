@@ -19,8 +19,26 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 import json
 import os
 import sys
+from pathlib import Path
 
 install_option = sys.argv[1] if len(sys.argv) > 1 else None
+
+if install_option == 'autodetect':
+    try:
+        with open('.install.json') as file:
+            install_data = json.load(file)
+
+        install_option = install_data['option']
+    except:
+        print(f'\x1b[31;1mNo Unifier installation was detected.\x1b[0m')
+
+        # check if running in docker
+        cgroup = Path('/proc/self/cgroup')
+        if Path('/.dockerenv').is_file() or cgroup.is_file() and 'docker' in cgroup.read_text():
+            # don't exit w/ error code 1 just in case
+            sys.exit(0)
+        else:
+            sys.exit(1)
 
 with open('boot/internal.json') as file:
     internal = json.load(file)
