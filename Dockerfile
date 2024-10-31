@@ -1,8 +1,5 @@
 FROM python:3.12
 
-# Add install data from .install.json
-COPY .install.json /app/.install.json
-
 # Add Unifier core
 ADD ./src /app/src
 
@@ -13,11 +10,11 @@ COPY ./requirements*.txt ./.install.* /app/
 ADD ./config /app/config
 ADD ./data /app/data
 
-# Install dependencies
-RUN python3 /app/src/boot/dep_installer.py
-
 # Set working directory
 WORKDIR /app
 
+# Install dependencies
+RUN python3 ./src/boot/dep_installer.py
+
 # Run bootloader
-RUN python3 /app/src/boot/bootloader.py
+RUN python3 ./src/boot/bootloader.py
